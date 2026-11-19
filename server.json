@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Taibi56/crypto-vertex",
+  "title": "Crypto Vertex",
+  "description": "Read-only crypto screener for Binance: 100+ indicators, funding, OI, CHoCH/BOS/CRT, breadth, F&G.",
+  "repository": {
+    "url": "https://github.com/Taibi56/crypto-vertex-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://www.cryptovertex.net/api-docs",
+  "version": "1.0.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://www.cryptovertex.net/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Your Crypto Vertex API key as a Bearer token: \"Bearer cv_live_...\". Free; create one at https://www.cryptovertex.net/api-keys",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
