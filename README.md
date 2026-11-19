@@ -1,5 +1,7 @@
 # Crypto Vertex MCP
 
+Crypto Vertex is a full crypto analysis platform at https://www.cryptovertex.net: screener, order book, liquidation map, backtesting, trading challenge and forex signals. This MCP server exposes the screener and market-data part, read-only.
+
 <!-- mcp-name: io.github.Taibi56/crypto-vertex -->
 
 **Crypto Vertex: real-time crypto screener for Binance. Filter and rank 400+ spot and 500+ futures coins by price, volume, RSI, MACD, ADX, funding, open interest, long/short ratio and 100+ technical signals; get market-structure signals (CHoCH, BOS, CRT), market breadth, Fear & Greed and BTC dominance. Read-only. Unavailable values are null, never estimated.**
@@ -12,13 +14,13 @@ This repository documents the remote [Model Context Protocol](https://modelconte
 
 ## Authentication
 
-A free API key is required. Sign up at https://www.cryptovertex.net, open **API keys** (https://www.cryptovertex.net/api-keys) and create a key (it starts with `cv_live_`). Send it as a header on every request:
+A free API key is required for `tools/call`. The discovery handshake (`initialize`, `tools/list`, `ping`, `notifications/initialized`) is open and needs no key. Sign up at https://www.cryptovertex.net, open **API keys** (https://www.cryptovertex.net/api-keys) and create a key (it starts with `cv_live_`). Send it as a header on every request:
 
 ```
 Authorization: Bearer cv_live_YOUR_KEY
 ```
 
-The MCP server and the REST API share the same key and the same daily limit (the counter resets at 00:00 UTC). Only `tools/call` counts as a request; the handshake (`initialize`, `tools/list`, `ping`) only validates the key. Keep your key secret and never commit it.
+The MCP server and the REST API share the same key and the same daily limit (the counter resets at 00:00 UTC). Only `tools/call` counts as a request; the handshake methods are open without a key, are not counted, and are limited per IP. Keep your key secret and never commit it.
 
 ## Connect
 
